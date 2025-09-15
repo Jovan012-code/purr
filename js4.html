@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic List Example</title>
+</head>
+<body>
+
+  <h1>Click the button to add a new item to the list.</h1>
+  <button id="addItemButton">Add Item</button>
+
+  <ul id="myList">
+    </ul>
+
+  <script>
+       const addItemButton = document.getElementById('addItemButton');
+    const myList = document.getElementById('myList');
+
+    let count = 1; 
+
+    
+    addItemButton.addEventListener('click', function() {
+            const newItem = document.createElement('li');
+
+     
+      newItem.textContent = `New Item ${count}`;
+
+          myList.appendChild(newItem);
+
+           count++;
+    });
+  </script>
+
+</body>
+</html>

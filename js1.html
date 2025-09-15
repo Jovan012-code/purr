@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show/Hide Content</title>
+</head>
+<body>
+
+  <h1>Click the Button Below</h1>
+
+  <button id="showButton">Click Me</button>
+
+  <div id="hiddenContent" style="display: none; margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+    <h3>Hello there!</h3>
+    <p>Jovan Capucion</p>
+  </div>
+
+  <script>
+    const showButton = document.getElementById('showButton');
+    const hiddenContent = document.getElementById('hiddenContent');
+
+    showButton.addEventListener('click', function() {
+   
+      if (hiddenContent.style.display === 'none') {
+        hiddenContent.style.display = 'block';
+      } else {
+        hiddenContent.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

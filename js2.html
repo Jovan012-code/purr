@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Counter</title>
+</head>
+<body>
+
+  <h1>Click the button to count!</h1>
+  <button id="incrementButton">Click Me</button>
+  <p>You have clicked the button <span id="clickCount">0</span> times.</p>
+
+  <script>
+    let count = 0;
+
+    const button = document.getElementById('incrementButton');
+    const displayCount = document.getElementById('clickCount');
+
+    button.addEventListener('click', function() {
+      count = count + 1;
+      displayCount.textContent = count;
+    });
+  </script>
+
+</body>
+</html>

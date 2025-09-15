@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changer</title>
+</head>
+<body>
+
+  <h1>Click the button to change the background color!</h1>
+  <button id="colorButton">Change Color</button>
+
+  <script>
+   
+    const button = document.getElementById('colorButton');
+
+      button.addEventListener('click', function() {
+     
+      const colors = ['#FF5733', '#33FFB5', '#336BFF', '#FF33E0', '#FFC300', '#8A2BE2'];
+
+            const randomIndex = Math.floor(Math.random() * colors.length);
+
+           const randomColor = colors[randomIndex];
+
+      
+      document.body.style.backgroundColor = randomColor;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Toggle Example</title>
+</head>
+<body>
+
+  <h1>Click the button to show or hide the image.</h1>
+  <button id="toggleButton">Toggle Image</button>
+
+  <img id="myImage" src="sleepingcat.jpeg" alt="A sleeping cat" style="display: none;">
+
+  <script>
+       const toggleButton = document.getElementById('toggleButton');
+    const myImage = document.getElementById('myImage');
+
+        toggleButton.addEventListener('click', function() {
+     
+      if (myImage.style.display === 'none') {
+               myImage.style.display = 'block';
+      } else {
+       
+        myImage.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
