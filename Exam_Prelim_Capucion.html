@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>The Sweet Spot Donuts - Tabbed Page</title>
+    <style>
+        
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav {
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+       
+        section {
+            padding: 20px 0;
+            margin-bottom: 20px;
+            
+            display: none; 
+        }
+        
+       
+        #home {
+            display: block; 
+        }
+
+        
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 0;
+        }
+        form input, form textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        form button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #thank-you-message {
+            text-align: center;
+            padding: 15px;
+            color: #333;
+            background-color: #f0f0f0;
+            margin-top: 20px;
+            display: none;
+        }
+        .image-gallery {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .image-gallery img {
+            max-width: 200px;
+            height: auto;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#our-story">Our Story</a></li>
+            <li><a href="#menu">Our Menu</a></li>
+            <li><a href="#specials">Daily Specials</a></li>
+            <li><a href="#contact-us">Contact/Order</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>Homerun for Donuts!</h2>
+            <p>Welcome to The Sweet Spot! We hand-craft the freshest, fluffiest donuts every morning. Dive into a world of glazes, sprinkles, and fillings. Your perfect coffee and donut pairing starts here.</p>
+        </section>
+
+        <section id="our-story">
+            <h2>Our Story (It's Glazed)</h2>
+            <p>Our passion is simple: making you smile with every bite. We use only premium ingredients, from Belgian chocolate to real vanilla beans, to ensure every donut is a masterpiece. We've been serving up joy since 2024</p>
+        </section>
+        
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <p>From the Classic Glazed and Maple Bacon to our seasonal Lemon Pistachio, our menu has a treat for everyone. Ask about our vegan and gluten-friendly options! "All donuts are made fresh, never frozen."</p>
+        </section>
+        
+        <section id="specials">
+            <h2>Daily Specials</h2>
+            <p>Today's Special is the "Cereal Milk Crunch"! Check out our latest creations below. Follow us on social media for a daily sneak peek at the oven-fresh batches.</p>
+            <div class="image-gallery">
+                <img src="donut1.jpg" alt="A delicious looking donut topped with sprinkles" title="Classic Sprinkles Donut">
+                <img src="donut2.jpg" alt="A glazed donut with a coffee cup next to it" title="Coffee and Glazed Donut">
+            </div>
+        </section>
+        
+        <section id="contact-us">
+            <h2>Contact & Catering Orders</h2>
+            <p>Need a dozen for the office or catering for an event? Use the form below to inquire about large orders or just to drop us a sweet note!</p>
+            <form id="contact-form">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Your Order/Inquiry:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Place Order Request</button>
+            </form>
+            <div id="thank-you-message">
+                <h3>Thanks for the order!</h3>
+                <p>We'll review your request and be in touch soon to confirm the sweetest details.</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        // Function to handle showing the correct content
+        function showContent(sectionId) {
+            // 1. Hide all content sections
+            const sections = document.querySelectorAll('.container section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // 2. Show the requested content section
+            const targetSection = document.querySelector(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+        }
+
+        // Add event listeners to all navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Prevent the default anchor jump behavior
+                e.preventDefault(); 
+                // Use the href (e.g., "#home") to call the showContent function
+                showContent(this.getAttribute('href'));
+            });
+        });
+
+        // Form submission logic (only relevant to the contact page)
+        document.getElementById('contact-form').addEventListener('submit',function(e){
+            e.preventDefault();
+            document.getElementById('contact-form').style.display='none';
+            document.getElementById('thank-you-message').style.display='block';
+        });
+
+        // Initial load: show the content based on the URL hash, or default to #home
+        if (window.location.hash) {
+            showContent(window.location.hash);
+        } else {
+            showContent('#home');
+        }
+    </script>
+</body>
+</html>
