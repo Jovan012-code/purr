@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Purr - One Page Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e9d2;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #5a3e36;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            display: inline-block;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            background-color: #8b6e65;
+            border-radius: 5px;
+        }
+        
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #5a3e36;
+            margin-bottom: 2rem;
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #5a3e36;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .post {
+            margin-bottom: 3rem;
+        }
+        
+        .post h2 {
+            font-size: 2.2rem;
+            color: #6c5a52;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease; 
+        }
+        
+        .post h2:hover {
+            transform: rotateY(15deg); 
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1.5rem;
+        }
+        
+        .post img, .post video {
+            width: 70%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            margin: 1.5rem auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #6c5a52;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: #666;
+            background-color: #f9f9f9;
+        }
+
+        .form-container {
+            background-color: #fefefe;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .form-container h3 {
+            margin-top: 0;
+            color: #5a3e36;
+        }
+        
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .form-container button {
+            background-color: #5a3e36;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #8b6e65;
+            transform: scale(1.05); 
+        }
+
+        .thank-you-message {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #e6f7e9;
+            color: #38761d;
+            border: 1px solid #c2e0c6;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 2rem;
+        }
+        
+        .code-example {
+            background-color: #333;
+            color: #f8f8f2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .code-example pre {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .navbar a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .post img, .post video {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a onclick="showPage('home-content')">Home</a>
+        <a onclick="showPage('blog-content')">Blog</a>
+        <a onclick="showPage('register-content')">Register</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Beyond the Purr</h1>
+            <p>An exploration into the enchanting world of cat hobbies and behaviors.</p>
+        </header>
+
+        <main>
+            <div id="home-content" class="page-content">
+                <article class="post">
+                    <h2>Welcome to the Feline Sanctuary!</h2>
+                    <p>Dive into the mysterious and wonderful world of cats. From their unique napping strategies to their complex play behaviors, we explore everything that makes our four-legged friends so captivating.</p>
+                    <p>Use the navigation bar above to explore our latest blog posts or register to join the community!</p>
+                    <img src="sleepingcat.jpeg" alt="A cat sleeping peacefully." />
+                </article>
+            </div>
+
+            <div id="blog-content" class="page-content" style="display: none;">
+                <article class="post">
+                    <h2>The Secret Lives of Our Feline Overlords</h2>
+                    <p class="post-meta">Published on <time datetime="2025-09-04">September 4, 2025</time> by <a href="#author">Jovan Capucion</a></p>
+                    
+                    <p>Cats, with their enigmatic charm and seemingly endless capacity for naps, lead surprisingly complex lives. Far from being mere house pets, they are sophisticated creatures with a rich tapestry of hobbies and behaviors that speak to their wild ancestry and unique personalities.</p>
+                    
+                    <p>One of their most iconic "hobbies" is the art of strategic napping. This isn't just about sleep; it's about optimizing warmth, comfort, and safety. A cat in a sunbeam, or curled up in an odd, contorted position, is not merely resting—they are perfecting the ancient art of feline relaxation. You can find more cat pictures on <a href="https://www.pexels.com/search/cats/" target="_blank">Pexels</a>.</p>
+                    
+                    <img src="sleepingcat.jpeg" alt="A cat sleeping peacefully." />
+                    
+                    <p>Beyond slumber, observation is paramount. A cat perched on a window sill is a diligent sentinel, monitoring birds, tracking the subtle shifts of light, and absorbing every detail of their domain. This quiet vigilance is a fundamental aspect of their daily existence, honing their senses even when seemingly at rest.</p>
+
+                    <blockquote>"Time spent with cats is never wasted." - Sigmund Freud</blockquote>
+                    
+                    <p>And then there's playtime. What might appear as simple antics with a toy is, in fact, a deeply ingrained reenactment of the hunt. The pounce, the stalk, the playful swat—each action is a demonstration of their innate predatory skills, keeping them sharp and entertained.</p>
+
+                    <h3>Witnessing Feline Playfulness</h3>
+                    <p>You can see more playful cat videos on <a href="https://pixabay.com/images/search/cats/" target="_blank">Pixabay</a>.</p>
+                    <video controls>
+                        <source src="playfulcat.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </article>
+            </div>
+
+            <div id="register-content" class="page-content" style="display: none;">
+                <section id="registration-form-section" class="form-container">
+                    <h3>Register for an Account</h3>
+                    <p>Join our community to comment on posts and share your cat stories!</p>
+
+                    <form id="registration-form" action="#" method="post">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                        
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        
+                        <button type="submit">Register</button>
+                    </form>
+                </section>
+                
+                <div id="thank-you-message" class="thank-you-message" style="display: none;">
+                    Thank you for your support! Your registration is complete!
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Jovan Capucion. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) { // JS FUNCTION definition
+            // JS OBJECT: document
+            const allPages = document.querySelectorAll('.page-content'); // OPERATOR: =
+            allPages.forEach(page => { // JS LOOP: forEach method
+                page.style.display = 'none'; // JS OBJECT: page (DOM element)
+            });
+
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) { // CONDITIONAL STATEMENT
+                selectedPage.style.display = 'block';
+            }
+            
+            if (pageId !== 'register-content') { // CONDITIONAL STATEMENT with OPERATOR: !==
+                const formSection = document.getElementById('registration-form-section');
+                const thankYou = document.getElementById('thank-you-message');
+                
+                if (formSection && thankYou) { // CONDITIONAL STATEMENT with OPERATOR: &&
+                    formSection.style.display = 'block';
+                    thankYou.style.display = 'none';
+                }
+            }
+        }
+
+        // JS OBJECT: document
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home-content');
+
+            const registrationForm = document.getElementById('registration-form'); // JS OBJECT: DOM element
+            const formSection = document.getElementById('registration-form-section');
+            const thankYou = document.getElementById('thank-you-message');
+
+            if (registrationForm && formSection && thankYou) { // CONDITIONAL STATEMENT with OPERATOR: &&
+                registrationForm.addEventListener('submit', function(event) { // JS FUNCTION: Anonymous function
+                    event.preventDefault(); // JS OBJECT: event, OPERATOR: .
+                    formSection.style.display = 'none';
+                    thankYou.style.display = 'block';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
